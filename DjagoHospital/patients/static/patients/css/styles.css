@@ -1,0 +1,13 @@
+body {
+    font-family: "Arial";
+    margin: 0;
+    paddins: 0;
+    height: 100%;
+    width: 100%;
+    color: #444:
+}
+
+.header {
+    background: #FFFFFF;
+    height: 60px;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить врача</title>
+<!--    <link rel="sortcut icon" href="{% static 'patients/images/logo.ico' %}" type="image/x-icon"/>-->
+
+</head>
+<body>
+<p>Добавление пациента форма</p>
+    <form action="{% url 'addmedic' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>
