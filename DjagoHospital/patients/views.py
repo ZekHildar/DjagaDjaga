@@ -1,9 +1,12 @@
+from django.contrib.auth import logout, login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import AddMedicForm
+from .forms import AddMedicForm, RegisterUserForm, LoginUserForm
 from .models import Patient, Medics
 from .utils import menu, DataMixin
 
@@ -36,8 +39,8 @@ def index(request):
 def about(request):
     return render(request, 'patients/about.html', {'menu': menu, 'title': 'About page'})
 
-def login(request):
-    return HttpResponse('Логин')
+# def login(request):
+#     return HttpResponse('Логин')
 
 def patients(request):
     return HttpResponse('Пациенты')
@@ -76,10 +79,12 @@ class MedicHome(DataMixin, ListView):
     model = Medics
     template_name = 'patients/index.html'
     context_object_name = 'medics'
+    paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Главная страница')
+        auth = self.request.user.is_authenticated
+        c_def = self.get_user_context(title='Главная страница', auth=auth)
         # context['title'] = 'Главная страница'
         # context['menu'] = menu
         return {**context, **c_def}
@@ -103,4 +108,34 @@ class AddMedic(LoginRequiredMixin, CreateView):
     form_class = AddMedicForm
     template_name = 'patients/addmedic.html'
     success_url = reverse_lazy('home')
+
+class RegisterUser(DataMixin, CreateView):
+     form_class = RegisterUserForm
+     template_name = 'patients/register.html'
+     success_url = reverse_lazy('login')
+
+     def get_context_data(self, *, object_list=None, **kwargs):
+         context = super().get_context_data(**kwargs)
+         c_def = self.get_user_context(title="Регистрация")
+         return {**context, **c_def}
+
+     def form_valid(self, form):
+         user = form.save()
+         login(self.request, user)
+         return redirect('home')
+
+class LoginUser(DataMixin, LoginView):
+    form_class = LoginUserForm
+    template_name = 'patients/login.html'
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Авторизация")
+        return {**context, **c_def}
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
 

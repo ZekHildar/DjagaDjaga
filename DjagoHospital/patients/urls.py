@@ -1,6 +1,15 @@
-from django.urls import path
+from django.urls import path, include
+from .viewsets import MedicViewSet
+# from patients.viewsets import MedicAPIView, MedicAPIDetailView
 from patients.views import index, groups, about, patients, medics, login, show_medic, addmedic, MedicHome, \
-    ShowMedic, AddMedic
+    ShowMedic, AddMedic, RegisterUser, LoginUser, logout_user
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'medics', MedicViewSet, basename='medics')
+
+
+
 
 urlpatterns = [
     path('', MedicHome.as_view(), name = 'home'),
@@ -8,6 +17,14 @@ urlpatterns = [
     path('about/', about, name = 'about'),
     path('medics/', medics, name='medics'),
     path('medics/<slug:med_slug>/', ShowMedic.as_view(), name='medic'),
-    path('login/', login, name='login'),
+    path('login/', LoginUser.as_view(), name='login'),
     path('addmedic/', AddMedic.as_view(), name='addmedic'),
+    path('register/', RegisterUser.as_view(), name='register'),
+    path('logout/', logout_user, name='logout'),
+    # path('api/v1/medic/', MedicAPIView.as_view()),
+    # path('api/v1/medic/<int:pk>/', MedicAPIDetailView.as_view())
+    # path('api/v1/medics/', MedicViewSet.as_view({'get': 'list'})),
+    # path('api/v1/medics/<int:pk>/', MedicViewSet.as_view({'put': 'update'})),
+    path('api/v1/', include(router.urls)),
+    path('api/v1/auth/', include('rest_framework.urls'))
 ]

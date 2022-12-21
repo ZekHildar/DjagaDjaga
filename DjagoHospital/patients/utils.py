@@ -1,3 +1,5 @@
+from rest_framework.pagination import PageNumberPagination
+
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Врачи", 'url_name': 'medics'},
         {'title': "Войти", 'url_name': 'login'}]
@@ -8,3 +10,8 @@ class DataMixin:
         context = kwargs
         context['menu'] = menu
         return context
+
+class MedicAPIPagination(PageNumberPagination):
+     page_size = 3
+     page_size_query_param = 'page_size'
+     max_page_size = 5

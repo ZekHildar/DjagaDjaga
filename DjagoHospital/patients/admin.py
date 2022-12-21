@@ -8,6 +8,7 @@ class MedicsAdmin(admin.ModelAdmin):
     list_editable = ('is_working',)
     list_filter = ('is_working', 'works_from')
     prepopulated_fields = {"slug": ("last_name",)}
+
 admin.site.register(Medics, MedicsAdmin)
 admin.site.register(GroupType)
 admin.site.register(Patient)
