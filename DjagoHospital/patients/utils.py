@@ -1,8 +1,6 @@
 from rest_framework.pagination import PageNumberPagination
 
-menu = [{'title': "О сайте", 'url_name': 'about'},
-        {'title': "Врачи", 'url_name': 'medics'},
-        {'title': "Войти", 'url_name': 'login'}]
+menu = [{'title': "О сайте", 'url_name': 'about'}, {'title': "Врачи", 'url_name': 'medics'}]
 
 
 class DataMixin:

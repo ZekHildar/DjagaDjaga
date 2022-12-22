@@ -7,31 +7,43 @@ a.text:hover,  /* при наведении */
 a.text {
   text-decoration: none;
   color: #ffffff;
+
 }
 
 body {
     font-family: "Arial";
     margin: 0;
-    paddings: 0;
+    padding: 0 10px 0 10px;
     height: 100%;
     width: 100%;
     color: #444:
+}
+.logo img{
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+
 }
 
 .header ul {
     color: #ffffff;
     background: #482a2a;
-    height: 20px;
-    padding: 10px;
+    height: 64px;
+    padding: 4px 0 4px 10px;
+
 }
 .header a {
     text-decoration:none;
     color: #ffffff;
+    vertical-align: middle;
+
+
 }
 
 .header li {
     display: inline-block;
     padding: 0 10px 0 0
+
 }
 
 list-pages {
@@ -43,7 +55,6 @@ list-pages {
     margin: 10px 0 0 0;
     padding: 0;
     list-style: none;
-
 }
 
 .list-pages ul li {

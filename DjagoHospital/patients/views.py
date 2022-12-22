@@ -18,9 +18,7 @@ from .utils import menu, DataMixin
 # def about(request):
 #     return render(request, '<patients/about.html>')
 
-menu = [{'title': "О сайте", 'url_name': 'about'},
-        {'title': "Врачи", 'url_name': 'medics'},
-        {'title': "Войти", 'url_name': 'login'}]
+menu = [{'title': "О сайте", 'url_name': 'about'}, {'title': "Врачи", 'url_name': 'medics'}]
 
 def groups(request, group):
     if request.POST:
