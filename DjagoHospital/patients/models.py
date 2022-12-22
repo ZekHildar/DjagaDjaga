@@ -31,6 +31,7 @@ class Medics(models.Model):
     grouptype = models.ForeignKey('GroupType', on_delete=models.CASCADE, verbose_name='Категория')
     slug = models.SlugField(verbose_name='URL', max_length=255, unique=True, db_index=True)
     user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
+    photo = models.ImageField(verbose_name='Фото', upload_to="photos/%Y/%m/%d/", null=True)
 
     class Meta:
         verbose_name = 'Врач'

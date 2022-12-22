@@ -3,10 +3,10 @@
 {% block content %}
 <h1>{{med.last_name}} {{med.first_name}} {{med.middle_name}}</h1>
 
-#дописать кусок про фото
-<!--{% if med_photo %}-->
-<!--    <p><img src="{{med.photo.url}}" alt="Medics photo"></p>-->
-<!--{% endif %}-->
+
+{% if med.photo %}
+<p class="medphoto"><img src="{{med.photo.url}}" alt="Medics photo"></p>
+{% endif %}
 
 <p>Дата рождения: {{med.birth_date}}</p>
 <p>Работает с: {{med.works_from}}</p>

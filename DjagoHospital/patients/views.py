@@ -18,7 +18,7 @@ from .utils import menu, DataMixin
 # def about(request):
 #     return render(request, '<patients/about.html>')
 
-menu = [{'title': "О сайте", 'url_name': 'about'}, {'title': "Врачи", 'url_name': 'medics'}]
+menu = [{'title': "О сайте", 'url_name': 'about'}]
 
 def groups(request, group):
     if request.POST:
@@ -53,7 +53,12 @@ def show_medic(request, med_slug):
     return render(request, 'patients/medics.html', context=context)
 
 def medics(request):
-    return HttpResponse('Врачи')
+    medics = Medics.objects.all()
+    context = {
+        'menu': menu,
+        'medics': medics,
+    }
+    return render(request, 'patients/aboutmedics.html', context=context)
 
 
 def addmedic(request):
