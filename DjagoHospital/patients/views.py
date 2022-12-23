@@ -88,8 +88,6 @@ class MedicHome(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         auth = self.request.user.is_authenticated
         c_def = self.get_user_context(title='Главная страница', auth=auth)
-        # context['title'] = 'Главная страница'
-        # context['menu'] = menu
         return {**context, **c_def}
 
     def get_queryset(self):

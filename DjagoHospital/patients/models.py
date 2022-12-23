@@ -30,7 +30,7 @@ class Medics(models.Model):
     is_working = models.BooleanField(verbose_name='Работает на данный момент', default=True)
     grouptype = models.ForeignKey('GroupType', on_delete=models.CASCADE, verbose_name='Категория')
     slug = models.SlugField(verbose_name='URL', max_length=255, unique=True, db_index=True)
-    user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE, null=True)
     photo = models.ImageField(verbose_name='Фото', upload_to="photos/%Y/%m/%d/", null=True)
 
     class Meta:

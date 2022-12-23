@@ -21,10 +21,8 @@ urlpatterns = [
     path('addmedic/', AddMedic.as_view(), name='addmedic'),
     path('register/', RegisterUser.as_view(), name='register'),
     path('logout/', logout_user, name='logout'),
-    # path('api/v1/medic/', MedicAPIView.as_view()),
-    # path('api/v1/medic/<int:pk>/', MedicAPIDetailView.as_view())
-    # path('api/v1/medics/', MedicViewSet.as_view({'get': 'list'})),
-    # path('api/v1/medics/<int:pk>/', MedicViewSet.as_view({'put': 'update'})),
     path('api/v1/', include(router.urls)),
     path('api/v1/auth/', include('rest_framework.urls'))
 ]
+
+

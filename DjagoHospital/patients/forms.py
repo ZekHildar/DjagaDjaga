@@ -6,9 +6,15 @@ from patients.models import GroupType, Medics
 
 
 class AddMedicForm(forms.ModelForm):
+
+    def __init__(self, *args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.fields['grouptype'].empty_label
     class Meta:
      model = Medics
-     fields = '__all__'
+     fields = ['last_name', 'first_name', 'middle_name', 'gender',
+               'birth_date', 'works_from', 'is_working', 'grouptype', 'slug']
+
     # last_name = forms.CharField(label='Фамилия', max_length=50)
     # first_name = forms.CharField(label='Имя', max_length=50)
     # middle_name = forms.CharField(label='Отчество', max_length=50)
