@@ -1,5 +1,5 @@
 {% extends 'patients/base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="about-container">
               <div>
@@ -28,5 +28,6 @@
 
               </div>
 </div>
-<img class="about-image" src="../static/patients/images/about_image.png">
+
+<img class="about-image" src="{% static 'patients/images/aboutimage.png'%}">
 {% endblock %}

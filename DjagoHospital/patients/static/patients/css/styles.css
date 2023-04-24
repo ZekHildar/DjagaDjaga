@@ -118,3 +118,42 @@ body {
 
     }
 }
+
+/* Регистрация */
+.registration_container_container{
+    display: flex;
+    justify-content: center;
+}
+.registration_container{
+    display: flex;
+    margin: 0;
+    width: 578px;
+    height: 786px;
+    background-color: #FFFFFF;
+    border-radius: 81px;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration_form{
+    width: 506px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.registration_form p{
+    padding: 42px 0 ;
+}
+
+.registration_form p input{
+    width: 506px;
+    height: 59px;
+    border-radius: 21px;
+    background-color: #E9E9E9;
+    border: none;
+}
+
+#id_username{
+    color: #0070FF;
+}

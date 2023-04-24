@@ -1,9 +1,18 @@
 {% extends 'patients/base.html' %}
 {% block content %}
-<h1>{{title}}</h1>
-<form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <button type="submit">Регистрация</button>
-</form>
+<div class="registration_container_container">
+              <div class="registration_container">
+                            <form class="registration_form" method="post">
+                                          {% csrf_token %}
+                                          {{ form.as_p }}
+                                          <!-- <ul class="contactList">
+                                                        <li id="username" class="contact">{{ form.username }}</li>
+                                                        <li id="email" class="contact">{{ form.email }}</li>
+                                                        <li id="password1" class="contact">{{ form.password1 }}</li>
+                                                        <li id="password2" class="contact">{{ form.password2 }}</li>
+                                          </ul> -->
+                                          <button type="submit">Регистрация</button>
+                            </form>
+              </div>
+</div>
 {% endblock %}
