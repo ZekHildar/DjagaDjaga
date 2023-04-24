@@ -1,118 +1,120 @@
-a {
-  text-decoration:none;
-  color: #ba4e3f;
+ul {
+    list-style: none;
 }
-a.text:active, /* активная/посещенная ссылка */
-a.text:hover,  /* при наведении */
-a.text {
-  text-decoration: none;
-  color: #ffffff;
 
+a {
+    text-decoration: none;
+    color: #1D1D1D;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    font-family: "Arial";
-    margin: 0;
-    padding: 0px 0px 0px 0px;
-    height: 100%;
+    background: linear-gradient(45deg, #A2398D, #E7E7E7, #E7E7E7, #206FB6);
+    background-size: 400% 400%;
     width: 100%;
-    color: #444:
-}
-.logo img{
-    height: 64px;
-    width: 64px;
-    vertical-align: middle;
-
+    height: 100vh;
+    animation: animate 30s ease infinite;
 }
 
-.header ul {
-    color: #ffffff;
-    background: #482a2a;
-    height: 64px;
-    padding: 4px 0 4px 10px;
+.logo-image {
+    max-width: auto;
+    max-height: 75px;
+}
+
+.mainmenu {
+    margin: 29px 147px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-list {
+    display: flex;
+    gap: 32px;
+    font-size: 24px;
+}
+
+.last {
+    display: flex;
+    gap: 14px;
+}
+
+.last a {
+    padding: 13px 24px;
+    background-color: #DBDBDB;
+    color: #0070FF;
     font-size: 20px;
-
-}
-.header a {
-    text-decoration:none;
-    color: #ffffff;
-    vertical-align: middle;
-}
-
-.header li {
-    display: inline-block;
-    padding: 0 10px 0 0
-
-}
-
-list-pages {
-    text-align: center;
-    margin: 0 0 20px 0;
-}
-
-.list-pages ul {
-    margin: 10px 0 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.list-pages ul li {
-    display: inline-block;
-    margin: 0 0 10px 20px;
-}
-
-.list-pages .page-num, .page-num-selected {
-    display: inline-block;
-    width: 25px;
-    height: 24px;
-    padding: 2px 0 0 0;
-    border: 1px solid #d0d0d0;
-    border-radius: 30px;
-    text-align: center;
-}
-
-.list-pages a {
-    color: #000;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.list-pages .page-num:hover {
-    box-shadow: 3px 3px 1px #d0d0d0;
-}
-
-.list-pages .page-num-selected {
+    border-radius: 8px;
     border: none;
-    color: #000;
-    font-size: 16px;
-    text-align: center;
 }
 
-.list-pages .page-num-selected:hover {
-    box-shadow: none;
-
-}
-.form-input {
-     width: 200px;
-     font-size: 16px;
+.about-container {
+    display: flex;
+    align-items: center;
+    margin: 143px 0 140px 147px;
+    max-width: 1029px;
 }
 
-.form-label {
-    display: inline-block;
-    min-width: 75px;
-    vertical-align: top;
+.about-text {
+    margin-top: 49px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+
+    color: #1D1D1D;
+}
+.about-header{
+    position: relative;
+}
+.header-text{
+    z-index: 98999;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    color: #1D1D1D;
+    position: relative;
 }
 
-.form-error ul {
-    list-style: none;
-    padding: 0;
-    color: #CC0000;
+.mark {
+    z-index: 1;
+    background: #AD80B0;
+    border-radius: 25px;
+    height: 64px;
+    width: 235px;
+    position: absolute;
+    top: 75px;
+    left: 676px;
+
 }
 
-.medphoto img{
-    height: 250px;
+.about-image {
+    max-height: 550px;
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 295px;
 }
 
+@keyframes animate {
+    0% {
+        background-position: 0% 50%;
+    }
 
+    50% {
+        background-position: 100% 50%;
 
+    }
 
+    100% {
+        background-position: 0% 50%;
+
+    }
+}

@@ -1,0 +1,119 @@
+a {
+    text-decoration: none;
+    color: #ba4e3f;
+}
+
+a.text:active,
+/* активная/посещенная ссылка */
+a.text:hover,
+/* при наведении */
+a.text {
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+body {
+    font-family: "Arial";
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    height: 100%;
+    width: 100%;
+    color: #444:
+}
+
+.logo img {
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+
+}
+
+.header ul {
+    color: #ffffff;
+    background: #482a2a;
+    height: 64px;
+    font-size: 20px;
+
+}
+
+.header a {
+    text-decoration: none;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+.header li {
+    display: inline-block;
+    padding: 0 10px 0 0
+}
+
+list-pages {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.list-pages ul {
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-pages ul li {
+    display: inline-block;
+    margin: 0 0 10px 20px;
+}
+
+.list-pages .page-num,
+.page-num-selected {
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    padding: 2px 0 0 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.list-pages a {
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.list-pages .page-num:hover {
+    box-shadow: 3px 3px 1px #d0d0d0;
+}
+
+.list-pages .page-num-selected {
+    border: none;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+}
+
+.list-pages .page-num-selected:hover {
+    box-shadow: none;
+
+}
+
+.form-input {
+    width: 200px;
+    font-size: 16px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 75px;
+    vertical-align: top;
+}
+
+.form-error ul {
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}
+
+.medphoto img {
+    height: 250px;
+}

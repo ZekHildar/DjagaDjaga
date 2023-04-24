@@ -1,16 +1,16 @@
 {% extends 'patients/base.html' %}
 {% block content %}
-        <h1>{{'Врачи поликлиники'}}</h1>
-        <ul>
-                {% for med in medics %}
-                        <li>
-                                <a href="{{med.get_absolute_url}}">
-                                {{med.first_name}}
-                                {{med.last_name | upper}}
-                                </a>
-                                {{med.grouptype}}
-                        </li>
-                {% endfor %}
-        </ul>
-        <p>Всего медиков: {{medics | length}}</p>
+<h1>{{'Врачи поликлиники'}}</h1>
+<ul>
+        {% for med in medics %}
+        <li>
+                <a href="{{med.get_absolute_url}}">
+                        {{med.first_name}}
+                        {{med.last_name | upper}}
+                </a>
+                {{med.grouptype}}
+        </li>
+        {% endfor %}
+</ul>
+<p>Всего медиков: {{medics | length}}</p>
 {% endblock %}

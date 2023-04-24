@@ -1,36 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <link type="text/css" href="{% static 'patients/css/styles.css' %}" rel="stylesheet" />
 </head>
+
 <body>
     {% block mainmenu %}
     <div class="header">
-
         <ul id="mainmenu" class="mainmenu">
-        <div id="rectangle">
-        <li class="logo"><a href="{% url 'home' %}"><div class="logo"><img src="{% static 'patients/images/logo.png'%}"></div></a></li>
-             {% for m in menu %}
-                <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
-             {% endfor %}
-            <li><a href="{% url 'medics' %}">Врачи</a></li>
+            <li class="logo">
+                <a href="{% url 'home' %}">
+                    <img class="logo-image" src="{% static 'patients/images/logo.png'%}">
+                </a>
+            </li>
+
+            <div class="center-list">
+                {% for m in menu %}
+                <li class="mainmenu__item">
+                    <a href="{% url m.url_name %}">{{ m.title }}</a>
+                </li>
+                {% endfor %}
+                <li class="mainmenu__item">
+                    <a href="{% url 'medics' %}">Врачи</a>
+                </li class="mainmenu__item">
+            </div>
+
             {% if request.user.is_authenticated %}
-                <li class="last"> {{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+            <li class="last"> {{user.username}} |
+                <a href="{% url 'logout' %}">Выйти</a>
+            </li>
             {% else %}
-                <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+            <li class="last">
+                <a href="{% url 'register' %}">Регистрация</a>
+                <a href="{% url 'login' %}">Войти</a>
+            </li>
             {% endif %}
-
-         </li>
-        </div>
         </ul>
-
     </div>
     {% endblock mainmenu %}
     {% block content %}
     {% endblock content %}
-
 </body>
 </html>
