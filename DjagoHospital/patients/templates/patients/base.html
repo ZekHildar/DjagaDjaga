@@ -33,7 +33,7 @@
             </div>
 
             {% if request.user.is_authenticated %}
-            <li class="last"> {{user.username}} |
+            <li class="last"> {{user.username}}
                 <a href="{% url 'logout' %}">Выйти</a>
             </li>
             {% else %}

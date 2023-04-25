@@ -16,9 +16,10 @@ a {
 
 body {
     background: linear-gradient(45deg, #A2398D, #E7E7E7, #E7E7E7, #206FB6);
-    background-size: 400% 400%;
-    width: 100%;
-    height: 100vh;
+    background-size: 100% 600vh;
+
+    /* width: 100%; */
+    /* height: 100%; */
     animation: animate 30s ease infinite;
 }
 
@@ -38,11 +39,19 @@ body {
     display: flex;
     gap: 32px;
     font-size: 24px;
+
 }
 
 .last {
     display: flex;
     gap: 14px;
+    align-items: center;
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #505050;
 }
 
 .last a {
@@ -70,10 +79,12 @@ body {
 
     color: #1D1D1D;
 }
-.about-header{
+
+.about-header {
     position: relative;
 }
-.header-text{
+
+.header-text {
     z-index: 98999;
     font-family: 'Montserrat';
     font-style: normal;
@@ -120,11 +131,13 @@ body {
 }
 
 /* Регистрация */
-.registration_container_container{
+.registration_container_container {
     display: flex;
     justify-content: center;
+    margin-top: 127px;
 }
-.registration_container{
+
+.registration_container {
     display: flex;
     margin: 0;
     width: 578px;
@@ -132,28 +145,172 @@ body {
     background-color: #FFFFFF;
     border-radius: 81px;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
 
-.registration_form{
-    width: 506px;
+.back-button {
+    background: #8DA9CD;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: -50px;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.back-button__arrow {
+    margin-left: -10px;
+}
+
+.registration-logo {
+    max-width: 233px;
+    margin-top: 24px;
+}
+
+.registration-header {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #000000;
+    margin-top: 56px;
+    margin-bottom: 23px;
+}
+
+.registration_form {
+    width: 506px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.registration_form p{
-    padding: 42px 0 ;
+    align-items: center;
 }
 
-.registration_form p input{
-    width: 506px;
+.registration_form p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 42px;
+    width: 100%;
+
+}
+
+.registration_form p input {
+    width: 100%;
     height: 59px;
     border-radius: 21px;
     background-color: #E9E9E9;
     border: none;
+    padding: 0 29px;
+    margin: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #343434;
 }
 
-#id_username{
-    color: #0070FF;
+.registration_form .errorlist {
+    margin-bottom: 42px;
+}
+
+.registration-button {
+    width: 310px;
+    height: 54px;
+    background: #8DA9CD;
+    border-radius: 15px;
+    border: none;
+    margin-top: 43px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+/* Медики */
+.medics-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.medics-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 170px 134px;
+}
+
+.medics-list__photo {
+    background-color: #FFD6D6;
+    width: 450px;
+    height: 600px;
+    border-radius: 30px;
+    margin-bottom: 32px;
+}
+
+.medics-link {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #000000;
+}
+
+.medics-category {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #3A3A3A;
+}
+
+/* Логин */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 578px;
+    margin: auto;
+
+}
+
+.auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 81px;
+    padding: 0 36px;
+}
+
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    width: 100%;
+    align-items: center;
+}
+
+.auth-form p{
+    display: flex;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    height: 59px;
+    border-radius: 21px;
+    background-color: #E9E9E9;
+    border: none;
+    padding: 0 29px;
+    margin: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #343434;
 }

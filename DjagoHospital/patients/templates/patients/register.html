@@ -1,18 +1,37 @@
-{% extends 'patients/base.html' %}
-{% block content %}
-<div class="registration_container_container">
-              <div class="registration_container">
-                            <form class="registration_form" method="post">
-                                          {% csrf_token %}
-                                          {{ form.as_p }}
-                                          <!-- <ul class="contactList">
-                                                        <li id="username" class="contact">{{ form.username }}</li>
-                                                        <li id="email" class="contact">{{ form.email }}</li>
-                                                        <li id="password1" class="contact">{{ form.password1 }}</li>
-                                                        <li id="password2" class="contact">{{ form.password2 }}</li>
-                                          </ul> -->
-                                          <button type="submit">Регистрация</button>
-                            </form>
-              </div>
-</div>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link type="text/css" href="{% static 'patients/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+    {% block content %}
+    <div class="registration_container_container">
+        <div class="registration_container">
+            <a class="back-button" href="{% url 'home' %}">
+                <svg class="back-button__arrow" width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 3L3 18.5L28 34" stroke="white" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+            <img class="registration-logo" src="{% static 'patients/images/logo.png'%}">
+            <p class="registration-header">Регистрация</p>
+            <form class="registration_form" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="registration-button" type="submit">Зарегестрироваться</button>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -26,20 +26,20 @@ class AddMedicForm(forms.ModelForm):
     # slug = forms.SlugField(label='URL', max_length=255)
 
 class RegisterUserForm(UserCreationForm):
-     username = forms.CharField(label='')
+     username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Логин'}))
     #  Логин
-     email = forms.EmailField(label='')
+     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'E-mail'}))
     #  E-mail
-     password1 = forms.CharField(label='', widget=forms.PasswordInput())
+     password1 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
     #  Пароль
-     password2 = forms.CharField(label='', widget=forms.PasswordInput())
+     password2 = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Повтор пароля'}))
     #  Повтор пароля
      class Meta:
          model = User
          fields = ('username', 'email', 'password1', 'password2')
 
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 
 
