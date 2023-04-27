@@ -7,7 +7,11 @@
                 {% for med in medics %}
                 <li class="medics-list-item">
                         <a class="medics-link" href="{{med.get_absolute_url}}">
-                                <div class="medics-list__photo"></div>
+                                <div class="medics-list__photo">
+                                        {% if med.photo %}
+                                        <img class="medphoto" src="{{med.photo.url}}" alt="Medics photo"></p>
+                                        {% endif %}
+                                </div>
                                 {{med.first_name}}
                                 {{med.last_name}}
                                 <p class="medics-category">{{med.grouptype}}</p>

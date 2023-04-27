@@ -1,19 +1,44 @@
-{% extends 'patients/base.html' %}
-{% block content %}
-<h1>{{title}}</h1>
-<div class="login-container">
-    <div class="auth-form-container">
-        <form class="auth-form" method="post">
-            {% csrf_token %}
-            <div class="form-error">{{ form.non_field_errors }}</div>
-            {% for f in form %}
-            <p>
-                <label class="form-label" for="{{ f.id_for_label}}">{{f.label}}</label>{{ f }}
-            </p>
-            <div class="form-error">{{ f.errors }}</div>
-            {% endfor %}
-            <button type="submit">Войти</button>
-        </form>
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link type="text/css" href="{% static 'patients/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+    {% block content %}
+    <div class="login-container">
+        <div class="auth-form-container">
+            <a class="back-button" href="{% url 'home' %}">
+                <svg class="back-button__arrow" width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 3L3 18.5L28 34" stroke="white" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+            <div class="login-header">
+                <img class="login-logo" src="{% static 'patients/images/logo.png'%}">
+                <p class="login-header-text">Логин</p>
+            </div>
+            <form class="auth-form" method="post">
+                {% csrf_token %}
+                <div class="form-error">{{ form.non_field_errors }}</div>
+                {% for f in form %}
+                <p>
+                    <label class="form-label" for="{{ f.id_for_label}}">{{f.label}}</label>{{ f }}
+                </p>
+                <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+                <button class="login-button" type="submit">Войти</button>
+            </form>
+        </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
+</body>
+
+</html>
