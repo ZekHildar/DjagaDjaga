@@ -35,7 +35,7 @@ def index(request):
     return render(request, 'patients/index.html', context=context)
 
 def about(request):
-    return render(request, 'patients/about.html', {'menu': menu, 'title': 'About page'})
+    return render(request, 'patients/about.html', {'menu': menu, 'title': 'О сайте'})
 
 # def login(request):
 #     return HttpResponse('Логин')
@@ -49,6 +49,7 @@ def show_medic(request, med_slug):
     context = {
         'med':medic,
         'menu': menu,
+        'title': 'Не Врачи',
     }
     return render(request, 'patients/medics.html', context=context)
 
@@ -57,6 +58,7 @@ def medics(request):
     context = {
         'menu': menu,
         'medics': medics,
+        'title': 'Врачи',
     }
     return render(request, 'patients/aboutmedics.html', context=context)
 
@@ -82,7 +84,7 @@ class MedicHome(DataMixin, ListView):
     model = Medics
     template_name = 'patients/index.html'
     context_object_name = 'medics'
-    paginate_by = 2
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -101,7 +103,7 @@ class ShowMedic(DataMixin, DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context()
+        c_def = self.get_user_context(title="Врач")
         return {**context, **c_def}
 
 

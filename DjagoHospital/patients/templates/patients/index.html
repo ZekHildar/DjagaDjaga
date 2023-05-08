@@ -1,22 +1,30 @@
 {% extends 'patients/base.html' %}
 {% load static %}
 {% block content %}
-<h1>{{title}}</h1>
-<ul>
-        {% for med in medics %}
-        <li>
-                <a href="{{med.get_absolute_url}}">
-                        {{med.first_name}}
-                        {{med.last_name | upper}}
-                </a>
-                {{med.grouptype}}
-        </li>
-        {% endfor %}
-</ul>
-<p>Всего медиков: {{medics | length}}</p>
+<!-- <h1>{{title}}</h1> -->
+        <div class="medics-container">
+        <ul class="medics-list">
+                {% for med in medics %}
+                <li class="medics-list-item">
+                        <a class="medics-link" href="{{med.get_absolute_url}}">
+                                <div class="medics-list__photo">
+                                        {% if med.photo %}
+                                        <img class="medphoto" src="{{med.photo.url}}" alt="Medics photo"></p>
+                                        {% endif %}
+                                </div>
+                                {{med.first_name}}
+                                {{med.last_name}}
+                                <p class="medics-category">{{med.grouptype}}</p>
+                        </a>
+                </li>
+                <!-- {{med.grouptype}} -->
+                {% endfor %}
+        </ul>
+</div>
+<!-- <p>Всего медиков: {{medics | length}}</p> -->
 {% if page_obj.has_other_pages %}
 <nav class="list-pages">
-        <ul>
+        <ul class="pages-list">
                 {% if page_obj.has_previous %}
                 <li class="page-num">
                         <a href="?page={{ page_obj.previous_page_number}}">&lt;</a>
@@ -38,7 +46,7 @@
         </ul>
 </nav>
 {% endif %}
-{% if auth %}
+{% if user.is_superuser %}
 <p><a href="{% url 'addmedic' %}">Зарегестрировать врача</a></p>
 {% endif %}
 {% endblock %}

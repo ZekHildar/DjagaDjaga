@@ -250,7 +250,7 @@ body {
     margin-bottom: 32px;
     position: relative;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
 
@@ -369,4 +369,52 @@ body {
     font-weight: 500;
     font-size: 24px;
     color: #FFFFFF;
+}
+
+/* Пагинация */
+.pages-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.page-num-selected {
+    font-weight: 700;
+}
+
+.card_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 65px;
+
+}
+
+.card_photo-container {
+    background-color: #FFD6D6;
+    width: 605px;
+    height: 807px;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_fullname {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 55px;
+}
+
+.card_infotext {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 40px;
 }
