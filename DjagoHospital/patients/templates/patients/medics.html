@@ -10,12 +10,22 @@
               </div>
               <div class="card_info-container">
                             <p class="card_fullname">{{med.last_name}} {{med.first_name}} {{med.middle_name}}</p>
-                            <p class="card_infotext">Дата рождения: {{med.birth_date}}</p>
-                            <p class="card_infotext">Работает с: {{med.works_from}}</p>
-                            <p class="card_infotext">Категория: {{med.grouptype}}</p>
+                            <p class="card_infotext">Дата рождения:
+                            <p class="card_info-from-object">{{med.birth_date}}</p>
+                            </p>
+                            <p class="card_infotext">Работает с:
+                            <p class="card_info-from-object">{{med.works_from}}</p>
+                            </p>
+                            <p class="card_infotext">Категория:
+                            <p class="card_info-from-object">{{med.grouptype}}</p>
+                            </p>
                             {% if med.is_working %}
-                            <p class="card_infotext">Работает на данный момент: Да</p>
-                            {% else %} <p class="card_infotext">Работает на данный момент: Нет</p>
+                            <p class="card_infotext">Работает на данный момент:
+                            <p class="card_info-from-object">Да</p>
+                            </p>
+                            {% else %} <p class="card_infotext">Работает на данный момент:
+                            <p class="card_info-from-object">Нет</p>
+                            </p>
                             {% endif %}
               </div>
 </div>
