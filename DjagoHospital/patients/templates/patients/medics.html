@@ -1,20 +1,34 @@
 {% extends 'patients/base.html' %}
 
 {% block content %}
-<h1>{{med.last_name}} {{med.first_name}} {{med.middle_name}}</h1>
-
-
-{% if med.photo %}
-<p class="medphoto"><img src="{{med.photo.url}}" alt="Medics photo"></p>
-{% endif %}
-
-<p>Дата рождения: {{med.birth_date}}</p>
-<p>Работает с: {{med.works_from}}</p>
-<p>Категория: {{med.grouptype}}</p>
-{% if med.is_working %}
-<p>Работает на данный момент: Да</p>
-{% else %} <p>Работает на данный момент: Нет</p>
-{% endif %}
+<!-- <h1>{{med.last_name}} {{med.first_name}} {{med.middle_name}}</h1> -->
+<div class="card_container">
+              <div class="card_photo-container">
+                            {% if med.photo %}
+                            <img class="medphoto" src="{{med.photo.url}}" alt="Medics photo">
+                            {% endif %}
+              </div>
+              <div class="card_info-container">
+                            <p class="card_fullname">{{med.last_name}} {{med.first_name}} {{med.middle_name}}</p>
+                            <p class="card_infotext">Дата рождения:
+                            <p class="card_info-from-object">{{med.birth_date}}</p>
+                            </p>
+                            <p class="card_infotext">Работает с:
+                            <p class="card_info-from-object">{{med.works_from}}</p>
+                            </p>
+                            <p class="card_infotext">Категория:
+                            <p class="card_info-from-object">{{med.grouptype}}</p>
+                            </p>
+                            {% if med.is_working %}
+                            <p class="card_infotext">Работает на данный момент:
+                            <p class="card_info-from-object">Да</p>
+                            </p>
+                            {% else %} <p class="card_infotext">Работает на данный момент:
+                            <p class="card_info-from-object">Нет</p>
+                            </p>
+                            {% endif %}
+              </div>
+</div>
 
 
 {% endblock %}
